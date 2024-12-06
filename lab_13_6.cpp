@@ -37,6 +37,6 @@ int main() {
         }
     }
     cout<<max<<"   i "<<i_max<<"  j "<<j_max<<endl;
-    cout<<max<<"  i "<<i_min<<"  j "<<j_min<<endl;
+    cout<<min<<"  i "<<i_min<<"  j "<<j_min<<endl;
     return 0;
 }
