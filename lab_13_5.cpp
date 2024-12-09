@@ -2,34 +2,37 @@
 using namespace std;
 
 int main() {
-    double ser1, ser;
     int n, m;
-    cin >> n>> m;
-    int A[n][n];
+    cin >> n >> m;
+    int A[n][m];
+
     srand(time(NULL));
-    for( int i=0; i<n; i++){
-        for(int j=0; j<m; j++){
-            A[i][j]=rand()%21-10;
-            cout << A[i][j]<<"\t";
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            A[i][j] = rand() % 20-10;
+            cout << A[i][j] << "\t";
         }
-        cout<<endl;
+        cout << endl;
     }
-    cout<<"=================================="<<endl;
-    int sum=0;
-
-    for( int i=0; i<n; i++){
-        int max=A[i][0];
-        for(int j=0; j<m; j++){
-            if (A[i][j]>max){
-                max=A[i][j];
-
+    int p=m/2;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (j < p && j >= 0) {
+                int t=A[i][j];
+                A[i][j]=A[i][m-1-j];
+                A[i][m-1-j]=t;
             }
+        }
+    }
+    cout<<"-------------------------------"<<endl;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cout << A[i][j] << "\t";
 
         }
-        sum+=max;
+        cout << endl;
     }
-    cout<<"sum "<<sum<<endl;
-
 
     return 0;
 }
